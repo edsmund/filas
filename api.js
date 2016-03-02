@@ -1,6 +1,7 @@
 var path = require('path');
 var http = require('http');
 var url = require('url');
+var fs = require('fs');
 // Log the requests
 var server = http.createServer(function(request, response){
 
@@ -52,7 +53,7 @@ MagicKingdom.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -79,7 +80,7 @@ MagicKingdom.GetWaitTimes(function(err, data) {
             }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 120px;}a{text-decoration:none; color: white;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 120px;}a{text-decoration:none; color: white;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><h1 class=toplink>Filas - Parques</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -126,7 +127,7 @@ Epcot.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Epcot</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -177,7 +178,7 @@ Hollywood.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Hollywood Studios</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -228,7 +229,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Animal Kingdom</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -279,7 +280,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -330,7 +331,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>California Adventure</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -381,7 +382,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -432,7 +433,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Disney Studios</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -483,7 +484,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Disney Hong Kong</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -534,7 +535,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Disney Tokyo</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -585,7 +586,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>DisneySea Tokyo</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -636,7 +637,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SeaWorld Florida</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -687,7 +688,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SeaWorld SA</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -738,7 +739,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SeaWorld SD</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -789,7 +790,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>BG Williamsburg</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -840,7 +841,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>BG Tampa</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -891,7 +892,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Sesame Place</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -942,7 +943,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Universal Studios</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -993,7 +994,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Universal Island</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1044,7 +1045,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags Texas</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1095,7 +1096,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags Georgia</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1146,7 +1147,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags St.Louis</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1197,7 +1198,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags GA</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1248,7 +1249,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags MM</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1299,7 +1300,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags G America</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1350,7 +1351,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags F Texas</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1401,7 +1402,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags Arlington</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1452,7 +1453,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags LA</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1503,7 +1504,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags America</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1554,7 +1555,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags DK</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1605,7 +1606,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags NE</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1656,7 +1657,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags HH Jackson</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1707,7 +1708,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags TGE</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1758,7 +1759,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags Atlanta</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1809,7 +1810,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags Mexico</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1860,7 +1861,7 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 8px 0px 0px 5px;}a{width: 120px;margin: 12px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:40px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:41px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage="<html><link href=style.css rel=stylesheet type=text/css /><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SixFlags Montreal</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
@@ -1871,6 +1872,14 @@ AK.GetWaitTimes(function(err, data) {
     
     
 });
+
+
+  } else if(request.url.indexOf('.css') != -1){
+        var cssFile = fs.readFileSync("style.css");
+    response.writeHead(200,{'Content-Type': 'text/css'});
+    response.write(cssFile);
+    response.end();
+
   }else { 
     response.writeHead(404, {'Content-Type': 'text/html; charset=utf-8'}); 
     response.write("<h1>Página não encontrada</h1>"); 
@@ -1883,6 +1892,6 @@ AK.GetWaitTimes(function(err, data) {
 
 
    
-server.listen(80, function(){
+server.listen(3000, function(){
   console.log('Executando Servidor HTTP');
 });
