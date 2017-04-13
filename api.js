@@ -239,7 +239,7 @@ AK.GetWaitTimes(function(err, data) {
     
     
 });
-  } else if(request.url=="/5"){
+  } /*else if(request.url=="/5"){
 
 var AK = new DisneyAPI.DisneylandMagicKingdom();
 
@@ -596,7 +596,7 @@ AK.GetWaitTimes(function(err, data) {
     
     
 });
-  } else if(request.url=="/12"){
+  } */else if(request.url=="/12"){
 
 var AK = new DisneyAPI.SeaWorldFlorida();
 
