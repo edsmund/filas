@@ -11,7 +11,7 @@ var MagicKingdom = new DisneyAPI.WaltDisneyWorldMagicKingdom();
 //for (var park in DisneyAPI) {
   //console.log("* " + new DisneyAPI[park]().name + " (DisneyAPI." + park + ")");
 //}
-response.writeHead(200, {"Content-Type": "text/html"});
+response.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
 if(request.url=="/1"){
 
 var MagicKingdom = new DisneyAPI.WaltDisneyWorldMagicKingdom();
