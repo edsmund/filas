@@ -31,13 +31,13 @@ MagicKingdom.GetWaitTimes(function(err, data) {
     	global.nome=data[i].name;
         global.tempo=data[i].waitTime;
     	i++;
-        if(global.tempo<19){
+        if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>19 && global.tempo<99) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -105,13 +105,13 @@ Epcot.GetWaitTimes(function(err, data) {
         global.nome=data[i].name;
         global.tempo=data[i].waitTime;
         i++;
-        if(global.tempo<19){
+        if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>19 && global.tempo<99) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -156,13 +156,13 @@ Hollywood.GetWaitTimes(function(err, data) {
         global.nome=data[i].name;
         global.tempo=data[i].waitTime;
         i++;
-        if(global.tempo<19){
+        if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>19 && global.tempo<99) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -207,13 +207,13 @@ AK.GetWaitTimes(function(err, data) {
         global.nome=data[i].name;
         global.tempo=data[i].waitTime;
         i++;
-        if(global.tempo<19){
+        if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>19 && global.tempo<99) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -615,13 +615,13 @@ AK.GetWaitTimes(function(err, data) {
         global.nome=data[i].name;
         global.tempo=data[i].waitTime;
         i++;
-        if(global.tempo<19){
+        if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>19 && global.tempo<99) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -666,13 +666,13 @@ AK.GetWaitTimes(function(err, data) {
         global.nome=data[i].name;
         global.tempo=data[i].waitTime;
         i++;
-        if(global.tempo<19){
+        if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>19 && global.tempo<99) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -768,13 +768,13 @@ AK.GetWaitTimes(function(err, data) {
         global.nome=data[i].name;
         global.tempo=data[i].waitTime;
         i++;
-        if(global.tempo<19){
+        if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>19 && global.tempo<99) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -819,13 +819,13 @@ AK.GetWaitTimes(function(err, data) {
         global.nome=data[i].name;
         global.tempo=data[i].waitTime;
         i++;
-        if(global.tempo<19){
+        if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>19 && global.tempo<99) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
