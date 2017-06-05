@@ -11,7 +11,7 @@ var MagicKingdom = new DisneyAPI.WaltDisneyWorldMagicKingdom();
 //for (var park in DisneyAPI) {
   //console.log("* " + new DisneyAPI[park]().name + " (DisneyAPI." + park + ")");
 //}
-response.writeHead(200, {"Content-Type": "text/html"});
+response.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
 if(request.url=="/1"){
 
 var MagicKingdom = new DisneyAPI.WaltDisneyWorldMagicKingdom();
@@ -26,18 +26,18 @@ MagicKingdom.GetWaitTimes(function(err, data) {
     
 
 
-    	//console.log(JSON.stringify(data[i].name, null, 2));
-    	//console.log(data[i].waitTime);
-    	global.nome=data[i].name;
+        //console.log(JSON.stringify(data[i].name, null, 2));
+        //console.log(data[i].waitTime);
+        global.nome=data[i].name;
         global.tempo=data[i].waitTime;
-    	i++;
+        i++;
         if(global.tempo<9){
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>9 && global.tempo<35) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -51,9 +51,9 @@ MagicKingdom.GetWaitTimes(function(err, data) {
             }
         }
     }
-
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div><ul>";
+/*li:nth-child(odd){background:#f7f7f7;}*/
+    htmlPage="<html><style>li:nth-child(14){visibility:hidden;position:absolute;}li:nth-child(15){visibility:hidden;position:absolute;}.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility:hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 4px !important; width: 27px !important; background-color:#d31344 !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:white !important;background-color:#fecc0f !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:0px 0px 0px 0px;color:gray;font-family: Helvetica Regular, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:#9bd72e;margin-left:7px;height:23px;width:19px;margin-top: 4px;color:white;}p{float:left;width:350px;margin: 13px 0px 10px 5px;height:17px;overflow:hidden;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:white;height:40px;margin:0;border:1px;padding:2px;border-top: 1px solid #f1f1f1;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -79,8 +79,8 @@ MagicKingdom.GetWaitTimes(function(err, data) {
             }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 120px;}a{text-decoration:none; color: white;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><h1 class=toplink>Filas - Parques</h1></div><ul>";
+    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 120px;}a{text-decoration:none; color: white;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility: hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:5px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><h1 class=toplink>Filas - Parques</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -111,7 +111,7 @@ Epcot.GetWaitTimes(function(err, data) {
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>9 && global.tempo<35) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -126,8 +126,8 @@ Epcot.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Epcot</h1></div><ul>";
+    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility:hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 4px !important; width: 27px !important; background-color:#d31344 !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:white !important;background-color:#fecc0f !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:0px 0px 0px 0px;color:gray;font-family: Helvetica Regular, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:#9bd72e;margin-left:7px;height:23px;width:19px;margin-top: 4px;color:white;}p{float:left;width:350px;margin: 13px 0px 10px 5px;height:17px;overflow:hidden;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:white;height:40px;margin:0;border:1px;padding:2px;border-top: 1px solid #f1f1f1;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -162,7 +162,7 @@ Hollywood.GetWaitTimes(function(err, data) {
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>9 && global.tempo<35) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -177,8 +177,8 @@ Hollywood.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Hollywood Studios</h1></div><ul>";
+    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility:hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 4px !important; width: 27px !important; background-color:#d31344 !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:white !important;background-color:#fecc0f !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:0px 0px 0px 0px;color:gray;font-family: Helvetica Regular, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:#9bd72e;margin-left:7px;height:23px;width:19px;margin-top: 4px;color:white;}p{float:left;width:350px;margin: 13px 0px 10px 5px;height:17px;overflow:hidden;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:white;height:40px;margin:0;border:1px;padding:2px;border-top: 1px solid #f1f1f1;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -213,7 +213,7 @@ AK.GetWaitTimes(function(err, data) {
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>9 && global.tempo<35) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -228,8 +228,8 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Animal Kingdom</h1></div><ul>";
+    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility:hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 4px !important; width: 27px !important; background-color:#d31344 !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:white !important;background-color:#fecc0f !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:0px 0px 0px 0px;color:gray;font-family: Helvetica Regular, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:#9bd72e;margin-left:7px;height:23px;width:19px;margin-top: 4px;color:white;}p{float:left;width:350px;margin: 13px 0px 10px 5px;height:17px;overflow:hidden;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:white;height:40px;margin:0;border:1px;padding:2px;border-top: 1px solid #f1f1f1;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -240,19 +240,13 @@ AK.GetWaitTimes(function(err, data) {
     
 });
   } /*else if(request.url=="/5"){
-
 var AK = new DisneyAPI.DisneylandMagicKingdom();
-
-
 // Get Magic Kingdom wait times
 AK.GetWaitTimes(function(err, data) {
     if (err) return console.error("Error fetching Magic Kingdom wait times: " + err);
     var i=0;
-
     for (var id in data){
     
-
-
         //console.log(JSON.stringify(data[i].name, null, 2));
         //console.log(data[i].waitTime);
         global.nome=data[i].name;
@@ -278,9 +272,8 @@ AK.GetWaitTimes(function(err, data) {
             }
         }
     }
-
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div><ul>";
+htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility:hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:#d31344 !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:white !important;background-color:#fecc0f !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:0px 0px 0px 0px;color:gray;font-family: Helvetica Regular, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:#9bd72e;margin-left:7px;height:23px;width:19px;margin-top: 4px;color:white;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:white;height:40px;margin:0;border:1px;padding:2px;border-top: 1px solid #f1f1f1;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -291,19 +284,13 @@ AK.GetWaitTimes(function(err, data) {
     
 });
   } else if(request.url=="/6"){
-
 var AK = new DisneyAPI.DisneylandCaliforniaAdventure();
-
-
 // Get Magic Kingdom wait times
 AK.GetWaitTimes(function(err, data) {
     if (err) return console.error("Error fetching Magic Kingdom wait times: " + err);
     var i=0;
-
     for (var id in data){
     
-
-
         //console.log(JSON.stringify(data[i].name, null, 2));
         //console.log(data[i].waitTime);
         global.nome=data[i].name;
@@ -329,7 +316,6 @@ AK.GetWaitTimes(function(err, data) {
             }
         }
     }
-
     htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>California Adventure</h1></div><ul>";
     htmlPage+=global.conteudo;
@@ -342,19 +328,13 @@ AK.GetWaitTimes(function(err, data) {
     
 });
   } else if(request.url=="/7"){
-
 var AK = new DisneyAPI.DisneylandParisMagicKingdom();
-
-
 // Get Magic Kingdom wait times
 AK.GetWaitTimes(function(err, data) {
     if (err) return console.error("Error fetching Magic Kingdom wait times: " + err);
     var i=0;
-
     for (var id in data){
     
-
-
         //console.log(JSON.stringify(data[i].name, null, 2));
         //console.log(data[i].waitTime);
         global.nome=data[i].name;
@@ -380,7 +360,6 @@ AK.GetWaitTimes(function(err, data) {
             }
         }
     }
-
     htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div><ul>";
     htmlPage+=global.conteudo;
@@ -393,19 +372,13 @@ AK.GetWaitTimes(function(err, data) {
     
 });
   } else if(request.url=="/8"){
-
 var AK = new DisneyAPI.DisneylandParisWaltDisneyStudios();
-
-
 // Get Magic Kingdom wait times
 AK.GetWaitTimes(function(err, data) {
     if (err) return console.error("Error fetching Magic Kingdom wait times: " + err);
     var i=0;
-
     for (var id in data){
     
-
-
         //console.log(JSON.stringify(data[i].name, null, 2));
         //console.log(data[i].waitTime);
         global.nome=data[i].name;
@@ -431,7 +404,6 @@ AK.GetWaitTimes(function(err, data) {
             }
         }
     }
-
     htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Disney Studios</h1></div><ul>";
     htmlPage+=global.conteudo;
@@ -444,19 +416,13 @@ AK.GetWaitTimes(function(err, data) {
     
 });
   }  else if(request.url=="/9"){
-
 var AK = new DisneyAPI.DisneylandHongKong();
-
-
 // Get Magic Kingdom wait times
 AK.GetWaitTimes(function(err, data) {
     if (err) return console.error("Error fetching Magic Kingdom wait times: " + err);
     var i=0;
-
     for (var id in data){
     
-
-
         //console.log(JSON.stringify(data[i].name, null, 2));
         //console.log(data[i].waitTime);
         global.nome=data[i].name;
@@ -482,7 +448,6 @@ AK.GetWaitTimes(function(err, data) {
             }
         }
     }
-
     htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Disney Hong Kong</h1></div><ul>";
     htmlPage+=global.conteudo;
@@ -495,19 +460,13 @@ AK.GetWaitTimes(function(err, data) {
     
 });
   } else if(request.url=="/10"){
-
 var AK = new DisneyAPI.DisneylandTokyo();
-
-
 // Get Magic Kingdom wait times
 AK.GetWaitTimes(function(err, data) {
     if (err) return console.error("Error fetching Magic Kingdom wait times: " + err);
     var i=0;
-
     for (var id in data){
     
-
-
         //console.log(JSON.stringify(data[i].name, null, 2));
         //console.log(data[i].waitTime);
         global.nome=data[i].name;
@@ -533,7 +492,6 @@ AK.GetWaitTimes(function(err, data) {
             }
         }
     }
-
     htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Disney Tokyo</h1></div><ul>";
     htmlPage+=global.conteudo;
@@ -546,19 +504,13 @@ AK.GetWaitTimes(function(err, data) {
     
 });
   } else if(request.url=="/11"){
-
 var AK = new DisneyAPI.DisneySeaTokyo();
-
-
 // Get Magic Kingdom wait times
 AK.GetWaitTimes(function(err, data) {
     if (err) return console.error("Error fetching Magic Kingdom wait times: " + err);
     var i=0;
-
     for (var id in data){
     
-
-
         //console.log(JSON.stringify(data[i].name, null, 2));
         //console.log(data[i].waitTime);
         global.nome=data[i].name;
@@ -584,7 +536,6 @@ AK.GetWaitTimes(function(err, data) {
             }
         }
     }
-
     htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
     htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>DisneySea Tokyo</h1></div><ul>";
     htmlPage+=global.conteudo;
@@ -621,7 +572,7 @@ AK.GetWaitTimes(function(err, data) {
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>9 && global.tempo<35) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -636,8 +587,8 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>SeaWorld Florida</h1></div><ul>";
+    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility:hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 4px !important; width: 27px !important; background-color:#d31344 !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:white !important;background-color:#fecc0f !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:0px 0px 0px 0px;color:gray;font-family: Helvetica Regular, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:#9bd72e;margin-left:7px;height:23px;width:19px;margin-top: 4px;color:white;}p{float:left;width:350px;margin: 13px 0px 10px 5px;height:17px;overflow:hidden;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:white;height:40px;margin:0;border:1px;padding:2px;border-top: 1px solid #f1f1f1;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -672,7 +623,7 @@ AK.GetWaitTimes(function(err, data) {
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>9 && global.tempo<35) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -774,7 +725,7 @@ AK.GetWaitTimes(function(err, data) {
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>9 && global.tempo<35) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -789,8 +740,8 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>BG Williamsburg</h1></div><ul>";
+    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility:hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 4px !important; width: 27px !important; background-color:#d31344 !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:white !important;background-color:#fecc0f !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:0px 0px 0px 0px;color:gray;font-family: Helvetica Regular, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:#9bd72e;margin-left:7px;height:23px;width:19px;margin-top: 4px;color:white;}p{float:left;width:350px;margin: 13px 0px 10px 5px;height:17px;overflow:hidden;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:white;height:40px;margin:0;border:1px;padding:2px;border-top: 1px solid #f1f1f1;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -825,7 +776,7 @@ AK.GetWaitTimes(function(err, data) {
             } else {
                 global.conteudo+="<li><p>"+global.nome+"</p><span>"+global.tempo+"</span></li>";
             } 
-        } else if(global.tempo>9 && global.tempo<35) {
+        } else if(global.tempo>9 && global.tempo<99) {
             if (i==1){
                 global.conteudo="<li><p>"+global.nome+"</p><span class=yellow>"+global.tempo+"</span></li>";
             } else {
@@ -840,8 +791,8 @@ AK.GetWaitTimes(function(err, data) {
         }
     }
 
-    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>BG Tampa</h1></div><ul>";
+    htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{visibility:hidden;font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 4px !important; width: 27px !important; background-color:#d31344 !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:white !important;background-color:#fecc0f !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:0px 0px 0px 0px;color:gray;font-family: Helvetica Regular, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:#9bd72e;margin-left:7px;height:23px;width:19px;margin-top: 4px;color:white;}p{float:left;width:350px;margin: 13px 0px 10px 5px;height:17px;overflow:hidden;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:white;height:40px;margin:0;border:1px;padding:2px;border-top: 1px solid #f1f1f1;}body{margin:0;padding:0;border:0;}</style><body>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><!--<div class=topmenu><a href=/app>< home</a><h1 class=toplink>Magic Kingdom</h1></div>--><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -943,7 +894,7 @@ AK.GetWaitTimes(function(err, data) {
     }
 
     htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>BG Tampa</h1></div><ul>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Universal Studios</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
@@ -994,7 +945,7 @@ AK.GetWaitTimes(function(err, data) {
     }
 
     htmlPage="<html><style>.toplink{float: left;font-size:20px; margin: 20px 0px 0px 5px;}a{width: 120px;margin: 23px 0px 0px 5px; font-size:15px;float:left;text-decoration: none; color:white; font-family: Roboto, Arial, Helvetica, sans-serif;}body{float: left;font-family: Roboto, Arial, Helvetica, sans-serif; color:white;} .topmenu{font-size:30px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; background-color:#6632ec; height:60px; width: 400px;margin-bottom:1px;position:fixed;} .red {padding-left: 8px !important; width: 22px !important; background-color:red !important;} .yellow {padding-left: 8px !important; width: 22px !important; color:black !important;background-color:yellow !important;}ul {list-style:none !important;font-size:14px;width:400px;Padding :0px; margin:61px 0px 0px 0px;color:white;font-family: Roboto, Arial, Helvetica, sans-serif;}span{-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;float:left;padding-top:7px; padding-left:11px;background-color:green;margin-left:7px;height:23px;width:19px;margin-top: 4px;}p{float:left;width:350px;margin: 13px 0px 10px 5px;}li{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;margin-bottom:1px !important;background-color:#00d0d7;height:40px;margin:0;border:1px;padding:2px;}body{margin:0;padding:0;border:0;}</style><body>";
-    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>BG Tampa</h1></div><ul>";
+    htmlPage+="<meta name=viewport content=width=device-width, user-scalable=no><div class=topmenu><a href=/app>< home</a><h1 class=toplink>Universal Island</h1></div><ul>";
     htmlPage+=global.conteudo;
     htmlPage+="</ul>";
     htmlPage+="</html></body>";
