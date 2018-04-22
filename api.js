@@ -6,7 +6,7 @@ var server = http.createServer(function(request, response){
 
 // Setup API
 var DisneyAPI = require("themeparks");
-console.log(request.url);
+//console.log(request.url);
 
 
 
