@@ -917,7 +917,7 @@ AK.GetWaitTimes(function(err, data) {
 });
   } else if(request.url=="/16"){
 
-var AK = new DisneyAPI.Parks.BuschGardensTampa();
+var AK = new DisneyAPI.Parks.BuschGardensTampaBay();
 
 
 // Get Magic Kingdom wait times
