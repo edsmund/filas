@@ -713,7 +713,7 @@ AK.GetWaitTimes(function(err, data) {
 });
   } */else if(request.url=="/12"){
 
-var AK = new DisneyAPI.Parks.SeaWorldFlorida();
+var AK = new DisneyAPI.Parks.SeaworldOrlando();
 
 
 // Get Magic Kingdom wait times
@@ -764,7 +764,7 @@ AK.GetWaitTimes(function(err, data) {
 });
   }else if(request.url=="/13"){
 
-var AK = new DisneyAPI.Parks.SeaWorldSanAntonio();
+var AK = new DisneyAPI.Parks.SeaworldSanAntonio();
 
 
 // Get Magic Kingdom wait times
@@ -815,7 +815,7 @@ AK.GetWaitTimes(function(err, data) {
 });
   } else if(request.url=="/14"){
 
-var AK = new DisneyAPI.Parks.SeaWorldSanDiego();
+var AK = new DisneyAPI.Parks.SeaworldSanDiego();
 
 
 // Get Magic Kingdom wait times
@@ -1070,7 +1070,7 @@ AK.GetWaitTimes(function(err, data) {
 });
   }else if(request.url=="/19"){
 
-var AK = new DisneyAPI.Parks.UniversalIslandOfAdventure();
+var AK = new DisneyAPI.Parks.UniversalIslandsOfAdventure();
 
 
 // Get Magic Kingdom wait times
